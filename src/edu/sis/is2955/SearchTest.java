@@ -11,7 +11,7 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 
 /**
- * As a user, I would like to seach on craigslist. 
+ * As a user, I would like to search on craigslist. 
  * So that I can view the relevant and interesting posts only.
  *
  */
@@ -27,7 +27,7 @@ public class SearchTest {
 		driver.get("http://pittsburgh.craigslist.org/search/sss");
 	}
 
-	//	Given that I want to seach an English query
+	//	Given that I want to search an English query
 	//	When I input the English query and submit it
 	//	Then I see that relevant posts show up, with the query as part of title
 	@Test
@@ -43,7 +43,7 @@ public class SearchTest {
 		assertTrue(Firstresult.getText().toLowerCase().contains("book"));
 	}
 	
-	//	Given that I want to seach an Chinese query
+	//	Given that I want to search an Chinese query
 	//	When I input the Chinese query and submit it
 	//	Then I see that posts show up, without the query as part of title
 	//  We think this is a defects, since it cannot recognize the chinese words, but it still give results.
@@ -60,7 +60,7 @@ public class SearchTest {
 		assertTrue(Firstresult.isDisplayed()&&!Firstresult.getText().contains(" È"));
 	}
 	
-	//	Given that I want to seach an English-Chinese query
+	//	Given that I want to search an English-Chinese query
 	//	When I input the English-Chinese query and submit it
 	//	Then I see that posts show up, but it only contain English part in the title, not include the chinese part
 	@Test
@@ -77,7 +77,7 @@ public class SearchTest {
 		assertTrue(Firstresult.isDisplayed()&&Firstresult.getText().toLowerCase().contains("book"));
 	}
 	
-	//	Given that I want to seach an very long query, which there is not post relevant
+	//	Given that I want to search an very long query, which there is not post relevant
 	//	When I input the query and submit it
 	//	Then I see that no result shows up
 	@Test

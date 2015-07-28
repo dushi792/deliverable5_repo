@@ -36,10 +36,10 @@ public class FavoriteTest {
 	
 	//	Given that I see a favorite post
 	//	When I click on the favorite star
-	//	Then I see that favorite star change to gold and its class atrribute change to "star fav"
+	//	Then I see that favorite star change to gold and its class attribute change to "star fav"
 	@Test
 	public void testFavorite() {
-		//get the star button, before click the button's class atrribute should be "star"
+		//get the star button, before click the button's class attribute should be "star"
 		WebElement favoriteStar = driver.findElement(By.cssSelector("span[class='star']"));
 		favoriteStar.click();
 		
@@ -50,10 +50,10 @@ public class FavoriteTest {
 	
 	//	Given that I have favorited a post
 	//	When I click on the gold favorite star
-	//	Then I see that favorite star change to grey and its class atrribute change back to "star"
+	//	Then I see that favorite star change to grey and its class attribute change back to "star"
 	@Test
 	public void testUnfavorite() {
-		//get the star button, before click the button's class atrribute should be "star"
+		//get the star button, before click the button's class attribute should be "star"
 		WebElement favoriteStar = driver.findElement(By.cssSelector("span[class='star']"));
 		favoriteStar.click();
 		
@@ -71,7 +71,7 @@ public class FavoriteTest {
 	//	Then I see the titles of the favorited posts show on the page
 	@Test
 	public void testManageFavorite() {
-		//get the star button, before click the button's class atrribute should be "star"
+		//get the star button, before click the button's class attribute should be "star"
 		WebElement favoriteStar = driver.findElement(By.cssSelector("span[class='star']"));
 		favoriteStar.click();
 		
@@ -95,7 +95,7 @@ public class FavoriteTest {
 	//	Then I see total number of favorited posts change to 0 instantly
 	@Test
 	public void testReduceAllFavorites() {
-		//get the star button, before click the button's class atrribute should be "star"
+		//get the star button, before click the button's class attribute should be "star"
 		WebElement favoriteStar = driver.findElement(By.cssSelector("span[class='star']"));
 		favoriteStar.click();
 		
