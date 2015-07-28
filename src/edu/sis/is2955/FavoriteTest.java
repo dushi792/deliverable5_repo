@@ -16,7 +16,7 @@ public class FavoriteTest {
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
-		driver.get("http://pittsburgh.craigslist.org/");
+//		driver.get("http://pittsburgh.craigslist.org/");
 //		driver.findElement(By.xpath("(//a[contains(text(),'my account')])[2]")).click();
 //		driver.findElement(By.id("inputEmailHandle")).sendKeys("dushi792@gmail.com");
 //		driver.findElement(By.id("inputPassword")).sendKeys("Dushi792");
@@ -58,8 +58,25 @@ public class FavoriteTest {
 		favoriteStar.click();
 		WebElement favorite = driver.findElement(By.cssSelector("a[class='favlink']"));
 		favorite.click();
-		
-		assertTrue(true);
+		WebElement pet = driver.findElement(By.linkText("Saltwater aquarium LED lights"));
+		WebElement apa = driver.findElement(By.linkText("Huge 1 bedroom. All utilities included"));
+		assertTrue(pet.isDisplayed()&&apa.isDisplayed());
+	}
+	
+	@Test
+	public void testReduceAllFavorites() {
+		WebElement favoriteStar = driver.findElement(By.cssSelector("span[class='star']"));
+		favoriteStar.click();
+		driver.get("http://pittsburgh.craigslist.org/apa/5145316159.html");
+		favoriteStar = driver.findElement(By.cssSelector("span[class='star']"));
+		favoriteStar.click();
+		WebElement favorite = driver.findElement(By.cssSelector("a[class='favlink']"));
+		favorite.click();
+		WebElement favoriteNum = driver.findElement(By.cssSelector("span[class='n']"));
+		assertEquals(favoriteNum.getText(),"2");
+		WebElement selectall = driver.findElement(By.cssSelector("span[class='star v fav']"));
+		selectall.click();
+		assertEquals(favoriteNum.getText(),"0");
 	}
 	
 	@After
