@@ -20,7 +20,7 @@ import static org.junit.Assert.*;
 public class LoginTest {
 	private WebDriver driver;
 	
-	// Start at the home page for craig for each test
+	//  Start at the home page of craiglist for each test
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
@@ -90,7 +90,7 @@ public class LoginTest {
 		assertTrue(title.contains("craigslist: account log in"));
 	}
 	
-	//after each test, quit driver, since driver cannot quit by itself
+	//  after each test, quit driver, since driver cannot quit by itself
 	@After
 	public void tearDown() throws Exception {
 		driver.quit();
