@@ -1,5 +1,7 @@
 package edu.sis.jun;
 
+import java.util.concurrent.TimeUnit;
+
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -24,17 +26,12 @@ public class AccountTest {
 
 	@Test
 	public void testLogInLogOut() throws Exception {
+		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 		driver.findElement(By.xpath("(//a[contains(text(),'my account')])[2]")).click();
-		WebDriverWait wait = new WebDriverWait(driver,120);
-		wait.until(ExpectedConditions.elementToBeClickable(By.id("inputEmailHandle")));
 		driver.findElement(By.id("inputEmailHandle")).sendKeys("dushi792@gmail.com");
 		driver.findElement(By.id("inputPassword")).sendKeys("Dushi792");
 		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
-		WebDriverWait wait2 = new WebDriverWait(driver,120);
-		wait2.until(ExpectedConditions.elementToBeClickable(By.linkText("log out")));
 		driver.findElement(By.linkText("log out")).click();
-		WebDriverWait wait3 = new WebDriverWait(driver,120);
-		wait3.until(ExpectedConditions.elementToBeClickable(By.linkText("craigslist")));
 		String title = driver.getTitle();
 		assertTrue(title.contains("craigslist: account log in"));
 	}
