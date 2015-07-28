@@ -1,0 +1,5 @@
+1. Log in
+2. search
+3. favourtie
+4. search UI test
+5. Manage search history
