@@ -35,21 +35,21 @@ public class SearchResultDisplayTest {
 	public void testSortPriceFromLowToHigh() throws Exception {
 		driver.get(baseUrl + "/");
 		
-		// Search for word "apt"
+		//	Search for word "apt"
 		driver.findElement(By.id("query")).sendKeys("apt");
 		driver.findElement(By.id("query")).sendKeys(Keys.ENTER);
 		
-		// Click "$$$" to sort results
+		//	Click "$$$" to sort results
 		driver.findElement(By.linkText("$$$")).click();
 		try {
-			// Extract the price part in result and change it from string to integer
+			//	Extract the price part in result and change it from string to integer
 			String[] priceStr1 = driver.findElement(By.xpath("//p[5]/a/span")).getText().split("[\\D]+");
 			String[] priceStr2 = driver.findElement(By.xpath("//p[16]/a/span")).getText().split("[\\D]+");		
 			int price1 = Integer.parseInt(priceStr1[1]);
 			int price2 = Integer.parseInt(priceStr2[1]);
 			
-			// Compare two prices, the price before should be smaller than after one's,
-			// since it sort in ascending order.
+			//	Compare two prices, the price before should be smaller than after one's,
+			//	since it sort in ascending order.
 			assertTrue(price1 < price2 || price1 == price2);
 		} catch (NoSuchElementException nseex) {
 			fail();
@@ -63,19 +63,19 @@ public class SearchResultDisplayTest {
 	public void testChangetoThumbView() throws Exception {
 		driver.get(baseUrl + "/");
 		
-		// Search for word "apt"
+		//	Search for word "apt"
 		driver.findElement(By.id("query")).sendKeys("apt");
 		driver.findElement(By.id("query")).sendKeys(Keys.ENTER);
 		try {
-			// At default view, its element with css "div > img" should not be null
+			//	At default view, its element with css "div > img" should not be null
 			assertNotNull(driver.findElement(By.cssSelector("div > img")).getText());
 			
-			// Change to thumb view
+			//	Change to thumb view
 			driver.findElement(By.id("picview")).click();
 			
-			// The element with css "img.thumb" should not be null
+			//	The element with css "img.thumb" should not be null
 			assertNotNull(driver.findElement(By.cssSelector("img.thumb")).getText());
-			// Meanwhile, the element with previous css "div > img" should have no vaule
+			//	Meanwhile, the element with previous css "div > img" should have no vaule
 			assertNull(driver.findElement(By.cssSelector("div > img")).getAttribute("value"));
 		} catch (NoSuchElementException nseex) {
 			fail();
@@ -89,22 +89,23 @@ public class SearchResultDisplayTest {
 	public void testChangetoListView() throws Exception {
 		driver.get(baseUrl + "/");
 		
-		// Search for word "apt"
+		//	Search for word "apt"
 		driver.findElement(By.id("query")).sendKeys("apt");
 		driver.findElement(By.id("query")).sendKeys(Keys.ENTER);
 		try {
-			// At default view, its element with css "div > img" should not be null
+			//	At default view, its element with css "div > img" should not be null
 			assertNotNull(driver.findElement(By.cssSelector("div > img")).getText());
 			
-			// Change to list view
+			//	Change to list view
 			driver.findElement(By.id("listview")).click();
-			// There should only have words, so element with css "div > img" should have no vaule
+			//	There should only have words, so element with css "div > img" should have no vaule
 			assertNull(driver.findElement(By.cssSelector("div > img")).getAttribute("value"));
 		} catch (NoSuchElementException nseex) {
 			fail();
 		}
 	}
 	
+	//	After each test, quit driver, since driver cannot quit by itself
 	@After
 	public void tearDown() throws Exception {
 		driver.quit();

@@ -17,10 +17,9 @@ import org.openqa.selenium.firefox.FirefoxDriver;
  */
 
 public class SearchTest {
-	
 	private WebDriver driver;
 	
-        //  Start at the search page of craiglist for each test
+	//  Start at the search page of craiglist for each test
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
@@ -32,13 +31,13 @@ public class SearchTest {
 	//	Then I see that relevant posts show up, with the query as part of title
 	@Test
 	public void testEnglishQuery() {
-		//input an English query
+		//	Input an English query
 		driver.findElement(By.id("query")).sendKeys("book");
 		
-		//submit the query
+		//	Submit the query
 		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
 		
-		//find the first result's title, it should contain "book", regardless of cases
+		//	Find the first result's title, it should contain "book", regardless of cases
 		WebElement firstResult = driver.findElement(By.xpath("/html/body/section/div[2]/form/div[2]/div[3]/p[1]/span/span[2]/a"));
 		assertTrue(firstResult.getText().toLowerCase().contains("book"));
 	}
@@ -49,13 +48,13 @@ public class SearchTest {
 	//  We think this is a defects, since it cannot recognize the chinese words, but it still give results.
 	@Test
 	public void testChineseQuery() {
-		//input an Chinese query
+		//	Input an Chinese query
 		driver.findElement(By.id("query")).sendKeys("Êé");
 		
-		//submit the query
+		//	Submit the query
 		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
 		
-		//find the first result's title, it should have result, but the result doesn't contain the query
+		//	Find the first result's title, it should have result, but the result doesn't contain the query
 		WebElement firstResult = driver.findElement(By.xpath("/html/body/section/div[2]/form/div[2]/div[3]/p[1]/span/span[2]/a"));
 		assertTrue(firstResult.isDisplayed()&&!firstResult.getText().contains("Êé"));
 	}
@@ -65,13 +64,13 @@ public class SearchTest {
 	//	Then I see that posts show up, but it only contain English part in the title, not include the chinese part
 	@Test
 	public void testEngChinQuery() {
-		//input an conbine English and Chinese query
+		//	Input an conbine English and Chinese query
 		driver.findElement(By.id("query")).sendKeys("Êébook");
 		
-		//submit the query
+		//	Submit the query
 		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
 		
-		//find the first result's title, it should have result, but the result doesn't contain the chinese letter, only contains English letter
+		//	Find the first result's title, it should have result, but the result doesn't contain the chinese letter, only contains English letter
 		WebElement firstResult = driver.findElement(By.xpath("/html/body/section/div[2]/form/div[2]/div[3]/p[1]/span/span[2]/a"));
 		assertTrue(firstResult.isDisplayed()&&!firstResult.getText().contains("Êé"));
 		assertTrue(firstResult.isDisplayed()&&firstResult.getText().toLowerCase().contains("book"));
@@ -82,18 +81,18 @@ public class SearchTest {
 	//	Then I see that no result shows up
 	@Test
 	public void testNoResult() {
-		//input an long query, which don't have match result
+		//	Input an long query, which don't have match result
 		driver.findElement(By.id("query")).sendKeys("abcdefghijk&*$#2");
 		
-		//submit the query
+		//	Submit the query
 		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
 		
-		//a no results div should exit
+		//	A no results div should exit
 		WebElement noResult = driver.findElement(By.cssSelector("div[class='noresults']"));
 		assertTrue(noResult.isDisplayed());
 	}
 	
-	//  after each test, quit driver, since driver cannot quit by itself
+	//	After each test, quit driver, since driver cannot quit by itself
 	@After
 	public void tearDown() throws Exception {
 		driver.quit();

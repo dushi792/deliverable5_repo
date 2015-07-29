@@ -22,7 +22,7 @@ public class UITest {
 	private WebDriver driver;
 	private String baseUrl;
 	
-    //  Start at the main page for craiglist for each test
+    //	Start at the main page for craiglist for each test
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
@@ -35,18 +35,18 @@ public class UITest {
 	//	Then I should get an mobile UI when I reload the page
 	@Test
 	public void testChangeToMobileUI() {
-		// Using JS to set cookies
+		//	Using JS to set cookies
 		((JavascriptExecutor) driver).executeScript("document.cookie = 'cl_fmt=mobile'");
 		
-		// Reload the page
+		//	Reload the page
 		driver.get(baseUrl + "/");
 		
-		// There should have an menu for mobile
+		//	There should have an menu for mobile
 		assertNotNull(driver.findElement(By.cssSelector("div.mobile-menu-button.mobile-only")).getText());
 	}
 	
 	
-	//  After each test, quit driver, since driver cannot quit by itself
+	//	After each test, quit driver, since driver cannot quit by itself
 	@After
 	public void tearDown() throws Exception {
 		driver.quit();

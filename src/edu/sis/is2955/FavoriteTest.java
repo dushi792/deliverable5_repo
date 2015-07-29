@@ -113,7 +113,7 @@ public class FavoriteTest {
 		assertEquals(favoriteNum.getText(),"0");
 	}
 	
-        //	After each test, quit driver, since driver cannot quit by itself
+	//	After each test, quit driver, since driver cannot quit by itself
 	@After
 	public void tearDown() throws Exception {
 		driver.quit();
