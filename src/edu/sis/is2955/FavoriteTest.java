@@ -108,8 +108,8 @@ public class FavoriteTest {
 		assertEquals(favoriteNum.getText(),"2");
 		
 		//unfavorate all the posts, the number should be 0
-		WebElement selectall = driver.findElement(By.cssSelector("span[class='star v fav']"));
-		selectall.click();
+		WebElement selectAll = driver.findElement(By.cssSelector("span[class='star v fav']"));
+		selectAll.click();
 		assertEquals(favoriteNum.getText(),"0");
 	}
 	
