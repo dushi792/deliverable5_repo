@@ -36,6 +36,7 @@ public class LoginTest {
 		driver.findElement(By.xpath("(//a[contains(text(),'my account')])[2]")).click();
 		
 		//input the account number as "dushi792@gmail.com", and correct password as "Dushi792"
+		//This is a test account, is not our real account
 		driver.findElement(By.id("inputEmailHandle")).sendKeys("dushi792@gmail.com");
 		driver.findElement(By.id("inputPassword")).sendKeys("Dushi792");
 		
@@ -43,8 +44,8 @@ public class LoginTest {
 		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
 		
 		//if login success, there should be a log out button on the top corner
-		WebElement Logoutbutton = driver.findElement(By.linkText("log out"));
-		assertTrue(Logoutbutton.getText().equals("log out"));
+		WebElement logoutButton = driver.findElement(By.linkText("log out"));
+		assertTrue(logoutButton.getText().equals("log out"));
 	}
 	
 	//	Given that I have a right account and a wrong password
@@ -63,8 +64,8 @@ public class LoginTest {
 		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
 		
 		//since the password is wrong, there should be an error message shows up
-		WebElement failmessage = driver.findElement(By.cssSelector("p[class=\"error\"]"));
-		assertTrue(failmessage.isDisplayed());
+		WebElement failMessage = driver.findElement(By.cssSelector("p[class=\"error\"]"));
+		assertTrue(failMessage.isDisplayed());
 	}
 	
 	//	Given that I have a right account and a right password and already log into my account
