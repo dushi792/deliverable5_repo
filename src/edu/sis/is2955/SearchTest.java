@@ -19,7 +19,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 public class SearchTest {
 	private WebDriver driver;
 	
-	//  Start at the search page of craiglist for each test
+	//      Start at the search page of craiglist for each test
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
