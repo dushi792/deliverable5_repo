@@ -38,7 +38,7 @@ public class LoginTest {
 		//input the account number as "dushi792@gmail.com", and correct password as "Dushi792"
 		//This is a test account, is not our real account
 		driver.findElement(By.id("inputEmailHandle")).sendKeys("dushi792@gmail.com");
-		driver.findElement(By.id("inputPassword")).sendKeys("Dushi792");
+		driver.findElement(By.id("inputPassword")).sendKeys("abc123456");
 		
 		//click submit button to login
 		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
@@ -58,7 +58,7 @@ public class LoginTest {
 		
 		//input the account number as "dushi792@gmail.com", and wrong password as "Dushi"
 		driver.findElement(By.id("inputEmailHandle")).sendKeys("dushi792@gmail.com");
-		driver.findElement(By.id("inputPassword")).sendKeys("Dushi");
+		driver.findElement(By.id("inputPassword")).sendKeys("abc1");
 		
 		//click submit button to login
 		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
@@ -78,9 +78,7 @@ public class LoginTest {
 		
 		//input the account number as "dushi792@gmail.com", and correct password as "Dushi792"
 		driver.findElement(By.id("inputEmailHandle")).sendKeys("dushi792@gmail.com");
-		driver.findElement(By.id("inputPassword")).sendKeys("Dushi792");
-		
-		//click submit button to login
+		driver.findElement(By.id("inputPassword")).sendKeys("abc123456");
 		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
 		
 		//click log out button to logout
