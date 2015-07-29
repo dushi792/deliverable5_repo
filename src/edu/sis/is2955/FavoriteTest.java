@@ -25,11 +25,6 @@ public class FavoriteTest {
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
-        //driver.get("http://pittsburgh.craigslist.org/");
-        //driver.findElement(By.xpath("(//a[contains(text(),'my account')])[2]")).click();
-        //driver.findElement(By.id("inputEmailHandle")).sendKeys("dushi792@gmail.com");
-        //driver.findElement(By.id("inputPassword")).sendKeys("Dushi792");
-        //driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
 		driver.get("http://pittsburgh.craigslist.org/pet/5145048821.html");
 	}
 	
