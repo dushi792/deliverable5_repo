@@ -20,7 +20,7 @@ public class SearchTest {
 	
 	private WebDriver driver;
 	
-    //  Start at the search page of craiglist for each test
+        //  Start at the search page of craiglist for each test
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
@@ -39,8 +39,8 @@ public class SearchTest {
 		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
 		
 		//find the first result's title, it should contain "book", regardless of cases
-		WebElement Firstresult = driver.findElement(By.xpath("/html/body/section/div[2]/form/div[2]/div[3]/p[1]/span/span[2]/a"));
-		assertTrue(Firstresult.getText().toLowerCase().contains("book"));
+		WebElement firstResult = driver.findElement(By.xpath("/html/body/section/div[2]/form/div[2]/div[3]/p[1]/span/span[2]/a"));
+		assertTrue(firstResult.getText().toLowerCase().contains("book"));
 	}
 	
 	//	Given that I want to search an Chinese query
@@ -50,14 +50,14 @@ public class SearchTest {
 	@Test
 	public void testChineseQuery() {
 		//input an Chinese query
-		driver.findElement(By.id("query")).sendKeys("书");
+		driver.findElement(By.id("query")).sendKeys("脢茅");
 		
 		//submit the query
 		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
 		
 		//find the first result's title, it should have result, but the result doesn't contain the query
-		WebElement Firstresult = driver.findElement(By.xpath("/html/body/section/div[2]/form/div[2]/div[3]/p[1]/span/span[2]/a"));
-		assertTrue(Firstresult.isDisplayed()&&!Firstresult.getText().contains("书"));
+		WebElement firstResult = driver.findElement(By.xpath("/html/body/section/div[2]/form/div[2]/div[3]/p[1]/span/span[2]/a"));
+		assertTrue(firstResult.isDisplayed()&&!firstResult.getText().contains("脢茅"));
 	}
 	
 	//	Given that I want to search an English-Chinese query
@@ -66,15 +66,15 @@ public class SearchTest {
 	@Test
 	public void testEngChinQuery() {
 		//input an conbine English and Chinese query
-		driver.findElement(By.id("query")).sendKeys("书book");
+		driver.findElement(By.id("query")).sendKeys("脢茅book");
 		
 		//submit the query
 		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
 		
 		//find the first result's title, it should have result, but the result doesn't contain the chinese letter, only contains English letter
-		WebElement Firstresult = driver.findElement(By.xpath("/html/body/section/div[2]/form/div[2]/div[3]/p[1]/span/span[2]/a"));
-		assertTrue(Firstresult.isDisplayed()&&!Firstresult.getText().contains("书"));
-		assertTrue(Firstresult.isDisplayed()&&Firstresult.getText().toLowerCase().contains("book"));
+		WebElement firstResult = driver.findElement(By.xpath("/html/body/section/div[2]/form/div[2]/div[3]/p[1]/span/span[2]/a"));
+		assertTrue(firstResult.isDisplayed()&&!firstResult.getText().contains("脢茅"));
+		assertTrue(firstResult.isDisplayed()&&firstResult.getText().toLowerCase().contains("book"));
 	}
 	
 	//	Given that I want to search an very long query, which there is not post relevant
@@ -89,8 +89,8 @@ public class SearchTest {
 		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
 		
 		//a no results div should exit
-		WebElement NoResult = driver.findElement(By.cssSelector("div[class='noresults']"));
-		assertTrue(NoResult.isDisplayed());
+		WebElement noResult = driver.findElement(By.cssSelector("div[class='noresults']"));
+		assertTrue(noResult.isDisplayed());
 	}
 	
 	//  after each test, quit driver, since driver cannot quit by itself
