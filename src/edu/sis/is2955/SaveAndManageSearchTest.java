@@ -32,7 +32,7 @@ public class SaveAndManageSearchTest {
 	    driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	    driver.findElement(By.xpath("(//a[contains(text(),'my account')])[2]")).click();
 	    driver.findElement(By.id("inputEmailHandle")).sendKeys("dushi792@gmail.com");
-	    driver.findElement(By.id("inputPassword")).sendKeys("Dushi792");
+	    driver.findElement(By.id("inputPassword")).sendKeys("abc123456");
 	    driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
 	}
 	

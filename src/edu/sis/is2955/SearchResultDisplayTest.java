@@ -43,10 +43,10 @@ public class SearchResultDisplayTest {
 		driver.findElement(By.linkText("$$$")).click();
 		try {
 			// Extract the price part in result and change it from string to integer
-			String[] pricestr1 = driver.findElement(By.xpath("//p[5]/a/span")).getText().split("[\\D]+");
-			String[] pricestr2 = driver.findElement(By.xpath("//p[16]/a/span")).getText().split("[\\D]+");		
-			int price1 = Integer.parseInt(pricestr1[1]);
-			int price2 = Integer.parseInt(pricestr2[1]);
+			String[] priceStr1 = driver.findElement(By.xpath("//p[5]/a/span")).getText().split("[\\D]+");
+			String[] priceStr2 = driver.findElement(By.xpath("//p[16]/a/span")).getText().split("[\\D]+");		
+			int price1 = Integer.parseInt(priceStr1[1]);
+			int price2 = Integer.parseInt(priceStr2[1]);
 			
 			// Compare two prices, the price before should be smaller than after one's,
 			// since it sort in ascending order.
