@@ -20,7 +20,7 @@ public class SearchResultDisplayTest {
 	private WebDriver driver;
 	private String baseUrl;
 	
-	// Start at the main page for craigslist for each test
+	//	Start at the main page for craigslist for each test
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
@@ -28,9 +28,9 @@ public class SearchResultDisplayTest {
 		driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
 	}
 	
-	// Given that I am in the main page
-	// When I search for something and click "$$$" button
-	// Then I should get the search results sorted from price low to high
+	//	Given that I am in the main page
+	//	When I search for something and click "$$$" button
+	//	Then I should get the search results sorted from price low to high
 	@Test
 	public void testSortPriceFromLowToHigh() throws Exception {
 		driver.get(baseUrl + "/");
@@ -56,9 +56,9 @@ public class SearchResultDisplayTest {
 		}
 	}
 	
-	// Given that I am in the main page
-	// When I search for something and click "thumb" button
-	// Then I should get the search results from gallery view to thumb view
+	//	Given that I am in the main page
+	//	When I search for something and click "thumb" button
+	//	Then I should get the search results from gallery view to thumb view
 	@Test
 	public void testChangetoThumbView() throws Exception {
 		driver.get(baseUrl + "/");
@@ -82,9 +82,9 @@ public class SearchResultDisplayTest {
 		}
 	}
 	
-	// Given that I am in the main page
-	// When I search for something and click "list" button
-	// Then I should get the search results from gallery view to list view
+	//	Given that I am in the main page
+	//	When I search for something and click "list" button
+	//	Then I should get the search results from gallery view to list view
 	@Test
 	public void testChangetoListView() throws Exception {
 		driver.get(baseUrl + "/");

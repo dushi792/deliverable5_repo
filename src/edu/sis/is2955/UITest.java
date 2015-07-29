@@ -22,7 +22,7 @@ public class UITest {
 	private WebDriver driver;
 	private String baseUrl;
 	
-    //	Start at the main page for craiglist for each test
+	//	Start at the main page for craiglist for each test
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();

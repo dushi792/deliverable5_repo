@@ -45,7 +45,7 @@ public class SearchTest {
 	//	Given that I want to search an Chinese query
 	//	When I input the Chinese query and submit it
 	//	Then I see that posts show up, without the query as part of title
-	//  We think this is a defects, since it cannot recognize the chinese words, but it still give results.
+	//	We think this is a defects, since it cannot recognize the chinese words, but it still give results.
 	@Test
 	public void testChineseQuery() {
 		//	Input an Chinese query
