@@ -49,14 +49,14 @@ public class SearchTest {
 	@Test
 	public void testChineseQuery() {
 		//	Input an Chinese query
-		driver.findElement(By.id("query")).sendKeys("Êé");
+		driver.findElement(By.id("query")).sendKeys("��");
 		
 		//	Submit the query
 		driver.findElement(By.cssSelector("button[type=\"submit\"]")).click();
 		
 		//	Find the first result's title, it should have result, but the result doesn't contain the query
 		WebElement firstResult = driver.findElement(By.xpath("/html/body/section/div[2]/form/div[2]/div[3]/p[1]/span/span[2]/a"));
-		assertTrue(firstResult.isDisplayed()&&!firstResult.getText().contains("Êé"));
+		assertTrue(firstResult.isDisplayed() && !firstResult.getText().contains("Êé"));
 	}
 	
 	//	Given that I want to search an English-Chinese query
@@ -72,8 +72,8 @@ public class SearchTest {
 		
 		//	Find the first result's title, it should have result, but the result doesn't contain the chinese letter, only contains English letter
 		WebElement firstResult = driver.findElement(By.xpath("/html/body/section/div[2]/form/div[2]/div[3]/p[1]/span/span[2]/a"));
-		assertTrue(firstResult.isDisplayed()&&!firstResult.getText().contains("Êé"));
-		assertTrue(firstResult.isDisplayed()&&firstResult.getText().toLowerCase().contains("book"));
+		assertTrue(firstResult.isDisplayed() && !firstResult.getText().contains("Êé"));
+		assertTrue(firstResult.isDisplayed() && firstResult.getText().toLowerCase().contains("book"));
 	}
 	
 	//	Given that I want to search an very long query, which there is not post relevant

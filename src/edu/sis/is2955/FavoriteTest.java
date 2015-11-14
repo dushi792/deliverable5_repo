@@ -25,7 +25,7 @@ public class FavoriteTest {
 	@Before
 	public void setUp() throws Exception {
 		driver = new FirefoxDriver();
-		driver.get("http://pittsburgh.craigslist.org/pet/5145048821.html");
+		driver.get("http://pittsburgh.craigslist.org/pet/5315898990.html");
 	}
 	
 	
@@ -71,7 +71,7 @@ public class FavoriteTest {
 		favoriteStar.click();
 		
 		//	Change the driver to another post and favorite it
-		driver.get("http://pittsburgh.craigslist.org/apa/5145316159.html");
+		driver.get("http://pittsburgh.craigslist.org/apa/5295065965.html");
 		favoriteStar = driver.findElement(By.cssSelector("span[class='star']"));
 		favoriteStar.click();
 		
@@ -80,9 +80,9 @@ public class FavoriteTest {
 		favorite.click();
 		
 		//	Check all the two favorited posts are showed up
-		WebElement pet = driver.findElement(By.linkText("Saltwater aquarium LED lights"));
-		WebElement apa = driver.findElement(By.linkText("Huge 1 bedroom. All utilities included"));
-		assertTrue(pet.isDisplayed()&&apa.isDisplayed());
+		WebElement pet = driver.findElement(By.linkText("Aspen Dog Cage (up to 30lbs)"));
+		WebElement apa = driver.findElement(By.linkText("Fabulous & Modern Two Bedroom with a Balcony Near Frick Park!"));
+		assertTrue(pet.isDisplayed() && apa.isDisplayed());
 	}
 	
 	//	Given that I have favorited two posts and at the favorite manage page
@@ -95,7 +95,7 @@ public class FavoriteTest {
 		favoriteStar.click();
 		
 		//	Change the driver to another post and favorite it
-		driver.get("http://pittsburgh.craigslist.org/apa/5145316159.html");
+		driver.get("http://pittsburgh.craigslist.org/apa/5295065965.html");
 		favoriteStar = driver.findElement(By.cssSelector("span[class='star']"));
 		favoriteStar.click();
 		
